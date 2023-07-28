@@ -345,9 +345,9 @@ This endpoint add comment from user and store it to commentList
 
 1. Clone this repository
 
-```bash
- git clone `https://github.com/zidaneibrahimf7/midtermgengigih.git`
-```
+  ```bash
+   git clone `https://github.com/zidaneibrahimf7/midtermgengigih.git`
+  ```
 
 2. Install dependencies
 
@@ -357,8 +357,8 @@ This endpoint add comment from user and store it to commentList
 
 3. Run the server
 
-```bash
- - npm start
-```
+  ```bash
+   - npm start
+  ```
 
 4. Now the server is running on port 3001. So you can access it via `http://127.0.0.1:3001` or `http://localhost:3001`
