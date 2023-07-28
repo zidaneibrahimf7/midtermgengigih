@@ -374,40 +374,22 @@ This endpoint add comment from user and store it to commentList
   }
   ```
 
-## How to run it locally
+## How to run!
 
 1. Clone this repository -->
 
-   ```bash
-   git clone
-   ```
+   bash
+   - git clone `https://github.com/zidaneibrahimf7/midtermgengigih.git`
+   
 
 2. Install dependencies
 
-bash
+   bash
+    - npm install
 
-- npm install
+3. Run the server
 
-3. Copy `.env.example` to `.env`
+  bash
+   - npm start
 
-   ```bash
-   # for linux and mac users
-   cp .env.example .env
-
-   # for windows users
-   copy .env.example .env
-   ```
-
-4. Open `.env` file and put your database connection url as follows:
-
-   ```bash
-   DATABASE_URL = mongodb://127.0.0.1:27017/final_project
-   ```
-
-5. Run the server
-
-   ```bash
-   npm start
-   ```
-
-6. Now the server is running on port 3000. So you can access it via `http://127.0.0.1:3001` or `http://localhost:3001` -->
+4. Now the server is running on port 3001. So you can access it via `http://127.0.0.1:3001` or `http://localhost:3001`
