@@ -4,6 +4,8 @@ This repository was created as proof that the midterm Generation Gigih 3.0 Full 
 
 ## Database Structure
 
+belum diisi
+
 <!-- ![Database Schema](./docs/database-schema.png) -->
 
 <!--
@@ -14,6 +16,16 @@ From the schema above, we can see that there are 3 collections in the database:
 - `comments` -->
 
 ## API Architecture
+
+<!-- ## API Structure
+
+![Database Schema](./docs/api-architecture.png) -->
+
+<!-- As shown in the image above, the API structure is as follows:
+
+- `User` is the user who will consume the API
+- `Backend` is the backend server that will serve the API (Node JS and Express JS)
+- `MongoDB` is the database that will store the data -->
 
 belum diisi
 
@@ -48,35 +60,19 @@ belum diisi
   "videoID": "string",
   "username": "string",
   "comment": "string",
-  "timestamp": "date"
+  "timestamp": "date" , "default: Date.now()"
 }
 ```
 
 The `productList` and `commentList` collection have a field called `videoID` which is a reference to the `videoID` field of the `videosList` collection.
 
-<!-- ## API Structure
-
-![Database Schema](./docs/api-architecture.png) -->
-
-<!-- As shown in the image above, the API structure is as follows:
-
-- `User` is the user who will consume the API
-- `Backend` is the backend server that will serve the API (Node JS and Express JS)
-- `MongoDB` is the database that will store the data -->
 
 inside the `Backend Arch` there are 2 layers:
 
-- `routes` is the layer that will handle the request from the `User` and send the response back to the `User`
-- `models` is the layer that will handle the data from the `MongoDB` and send the data back to the `routes`
-
-<!-- I don't use `controllers` and `services` layers because the API is very simple and does not require a lot of business
-logic. On top of that, `mongoose` already provides a lot of methods to interact with the database, including the
-validation one. So I don't need to create another layer to handle the validation and business logic. -->
-
+- `routes` :  layer that will handle the request from the `User` and send the response back to the `User`
+- `models` : is the layer that will handle the data from the `MongoDB` and send the data back to the `routes`
+  
 ## List APIs
-
-<!--
-![Database Schema](./docs/List-APIs.png) -->
 
 The list of APIs is as follows:
 
@@ -85,16 +81,14 @@ The list of APIs is as follows:
 This endpoint allows users to get videos in videoList.
 
 - URL Params:
-  - None
+  None
 - Data Params:
-  - None
+  None
 - Headers:
-  - Content-Type: application/json
+  Content-Type: application/json
 - Success Response
-
-  - CODE: 200
-    - Content:
-
+  `CODE: 200`
+  - Content:
   ````json
   [
     {
@@ -103,15 +97,11 @@ This endpoint allows users to get videos in videoList.
       "urlImg": "https://images.tokopedia.net/img/cache/100-square/VqbcmM/2022/11/25/f7fbd8fa-0de1-4831-9e77-b9edcc005200.png.webp?ect=4g"
     }
   ]
-  ```
-
-  ````
 
 - Error Response
 
-  - CODE: 404
+  `CODE: 404`
   - Content:
-
   ```json
   {
     "message": "Video not found"
@@ -123,56 +113,43 @@ This endpoint allows users to get videos in videoList.
 This endpoint allows users to add videos in videoList
 
 - URL Params:
-  - None
+  None
 - Data Params:
-  - None
+  None
 - Headers:
-  - Content-Type: application/json
+  Content-Type: application/json
 - Success Response
-
-  - Code: 200
+  `Code: 200`
   - Content:
-
   ````json
   {
-  "_id": {
-    "$oid": "64c312428d1f3167dbf5c8e2"
-  },
   "videoTitle": "Dompet CK Flip Wallet",
   "videoID": "vid001b",
   "urlImg": "https://images.tokopedia.net/img/cache/700/VqbcmM/2022/10/23/125a1748-5691-4a67-a789-6851422c2449.jpg.webp?ect=4g",
   "__v": 0
   }
-  ```
-
-  ````
 
 - Error Response
-
-  - Code: 400
+  `Code: 400`
   - Content:
-
   ```json
   {
     "message": "Invalid state"
   }
-  ```
 
 ### GET api/product/:videoID
 
 This endpoint allows users to get product from productList with videoID required
 
 - URL Params:
-  - required: `videoID=[string]`
+  required: `videoID=[string]`
 - Data Params:
-  - None
+  None
 - Headers:
-  - context-type: application/json
-- Success Response
-
-  - Code: 200
+  context-type: application/json
+- Success Response :
+  `Code: 200`
   - Content:
-
   ```json
   [
     {
@@ -185,11 +162,9 @@ This endpoint allows users to get product from productList with videoID required
   ]
   ```
 
-- Error Response
-
-  - Code: 500
-  - Content:
-
+- Error Response : 
+  `Code: 500`
+  Content:
   ```json
   {
     "message": "Invalid state"
@@ -201,14 +176,13 @@ This endpoint allows users to get product from productList with videoID required
 This endpoint allows users to add product list in productList
 
 - URL Params:
-  - None
+  None
 - Data Params:
-  - None
+  None
 - Headers:
-  - Context-Type: application/json
-- Success Response
-
-  - Code: 200
+  Context-Type: application/json
+- Success Response : 
+  `Code: 200`
   - Content:
 
   ```json
@@ -221,13 +195,10 @@ This endpoint allows users to add product list in productList
       "price": 90000
     }
   ]
-  ```
 
 - Error Response
-
-  - Code: 500
+  `Code: 500`
   - Content:
-
   ```json
   {
     "message": "Invalid server error"
@@ -239,16 +210,14 @@ This endpoint allows users to add product list in productList
 This endpoint allows users to update product list in productList
 
 - URL Params:
-  - required: `productID=[string]`
+  required: `productID=[string]`
 - Data Params:
-  - None
+  None
 - Headers:
-  - Context-text: application/json
-- Success Response
-
-  - Code: 201
+  Context-text: application/json
+- Success Response :
+  `Code: 201`
   - Content:
-
   ```json
   {
     "videoID": "vid001a",
@@ -259,11 +228,9 @@ This endpoint allows users to update product list in productList
   }
   ```
 
-- Error Response
-
-  - Code: 500
+- Error Response :
+  `Code: 500`
   - Content:
-
   ```json
   {
     "message": "Internal server error"
@@ -275,14 +242,13 @@ This endpoint allows users to update product list in productList
 This endpoint allows users to delete the product list in productList
 
 - URL Params:
-  - required: `productID=[string]`
+  required: `productID=[string]`
 - Data Params:
-  - None
+  None
 - Headers:
-  - Context-text: application/json
-- Success Response
-
-  - Code: 200
+  Context-text: application/json
+- Success Response :
+  `Code: 200`
   - Content:
 
   ```json
@@ -292,10 +258,8 @@ This endpoint allows users to delete the product list in productList
   ```
 
 - Error Response
-
-  - Code: 500
+  `Code: 500`
   - Content:
-
   ```json
   {
     "message": "Internal server error"
@@ -307,16 +271,14 @@ This endpoint allows users to delete the product list in productList
 This endpoint returns all comments of a video by its videoID
 
 - URL Params:
-  - required: `videoID=[string]`
+  required: `videoID=[string]`
 - Data Params:
-  - None
+  None
 - Headers:
-  - Context-text: application/json
+  Context-text: application/json
 - Success Response
-
-  - Code: 200
+  `Code: 200`
   - Content:
-
   ````json
   {
     "videoID": "vid001a",
@@ -324,15 +286,10 @@ This endpoint returns all comments of a video by its videoID
     "comment": "ah masa sih bisa?",
     "timestamp": "2023-07-27T13:16:52.937Z",
   }
-  ```
-
-  ````
 
 - Error Response
-
-  - Code: 500
+  `Code: 500`
   - Content:
-
   ```json
   {
     "message": "Internal server error"
@@ -344,16 +301,14 @@ This endpoint returns all comments of a video by its videoID
 This endpoint add comment from user and store it to commentList
 
 - URL Params:
-  - None
+  None
 - Data Params:
-  - None
+  None
 - Headers:
-  - Content-Type: application/json
+  Content-Type: application/json
 - Success Response
-
-  - Code: 200
+  `Code: 200`
   - Content:
-
   ```json
   {
     "username": "@suzuki",
@@ -363,8 +318,7 @@ This endpoint add comment from user and store it to commentList
   ```
 
 - Error Response
-
-  - Code: 500
+  `Code: 500`
   - Content:
 
   ```json
@@ -376,20 +330,22 @@ This endpoint add comment from user and store it to commentList
 
 ## How to run!
 
-1. Clone this repository -->
+1. Clone this repository
 
-   bash
-   - git clone `https://github.com/zidaneibrahimf7/midtermgengigih.git`
-   
+  ```bash
+   git clone `https://github.com/zidaneibrahimf7/midtermgengigih.git`
+  ```
 
 2. Install dependencies
 
-   bash
+   ```bash
     - npm install
+   ```
 
 3. Run the server
 
-  bash
+  ```bash
    - npm start
+  ```
 
 4. Now the server is running on port 3001. So you can access it via `http://127.0.0.1:3001` or `http://localhost:3001`
